@@ -31,7 +31,7 @@
     <tr>
         <td> {{$Mahasiswa->Nim}} </td>
         <td> {{$Mahasiswa->nama}} </td>
-        <td> {{$Mahasiswa->kelas}} </td>
+        <td> {{$Mahasiswa->kelas->nama_kelas}} </td>
         <td> {{$Mahasiswa->jurusan}} </td>
         <td> {{$Mahasiswa->no_handphone}} </td>
         <td>

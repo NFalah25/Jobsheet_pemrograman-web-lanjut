@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\kelas;
 
 class Mahasiswa extends Model
 {
@@ -15,9 +16,13 @@ class Mahasiswa extends Model
     protected $fillable=[
         'Nim',
         'nama',
-        'kelas',
+        'kelas_id',
         'jurusan',
         'no_handphone'
         ];
+
+        public function kelas(){
+            return $this->belongsTo(kelas::class);
+        }
 //    use HasFactory;
 }
