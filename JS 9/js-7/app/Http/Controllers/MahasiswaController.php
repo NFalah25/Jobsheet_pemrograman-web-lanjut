@@ -98,18 +98,18 @@ class MahasiswaController extends Controller
 
         // Mahasiswa::find($nim)->update($request->all());
         $mahasiswa = Mahasiswa::with('kelas')->where('Nim', $nim) -> first();
-        $mahasiswa->nim = $request->get('Nim');
+        $mahasiswa->Nim = $request->get('Nim');
         $mahasiswa->nama = $request->get('nama');
-        $mahasiswa->kelas = $request->get('kelas');
+        $mahasiswa->kelas_id = $request->get('kelas');
         $mahasiswa->jurusan = $request->get('jurusan');
         $mahasiswa->no_handphone = $request->get('no_handphone');
         $mahasiswa->save();
 
-        $kelas = new kelas();
+        $kelas = new kelas;
         $kelas->id = $request->get('kelas');
 
         //fungsi elequent untuk mengupdate data dengan relasi belongsTo
-        $mahasiswa->kelas()->associte($kelas);
+        $mahasiswa->kelas()->associate($kelas);
         $mahasiswa->save();
 
         //jika data berhasil diupdate, akan kembali ke halaman utama

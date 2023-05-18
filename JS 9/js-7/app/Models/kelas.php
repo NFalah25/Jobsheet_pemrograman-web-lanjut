@@ -12,6 +12,6 @@ class kelas extends Model
     protected $table='kelas'; //mendefinisikan bahwa model ini terkait dengan table kelas
 
     public function mahasiswa(){
-        return $this -> hasMany(Mahasiswa::class);
+        return $this->hasMany(Mahasiswa::class);
     }
 }
