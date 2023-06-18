@@ -17,7 +17,9 @@ class Mahasiswa extends Model
         'nama',
         'kelas',
         'jurusan',
-        'no_handphone'
+        'no_handphone',
+        'email',
+        'tanggal_lahir'
         ];
 //    use HasFactory;
 }

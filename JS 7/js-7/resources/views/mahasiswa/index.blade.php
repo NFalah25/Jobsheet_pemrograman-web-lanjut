@@ -25,6 +25,8 @@
         <th>Kelas</th>
         <th>Jurusan</th>
         <th>No_Hanphone</th>
+        <th>Email</th>
+        <th>tanggal_lahir</th>
         <th width="280px">Action</th>
     </tr>
     @foreach ($mahasiswa as $Mahasiswa )
@@ -34,6 +36,8 @@
         <td> {{$Mahasiswa->kelas}} </td>
         <td> {{$Mahasiswa->jurusan}} </td>
         <td> {{$Mahasiswa->no_handphone}} </td>
+        <td>{{ $Mahasiswa->email}}</td>
+        <td>{{ $Mahasiswa->tanggal_lahir }}</td>
         <td>
             <form action="{{ route('mahasiswa.destroy', $Mahasiswa->Nim) }}" method="post">
                 <a href="{{ route('mahasiswa.show', $Mahasiswa->Nim)}}" class="btn btn-info">Show</a>

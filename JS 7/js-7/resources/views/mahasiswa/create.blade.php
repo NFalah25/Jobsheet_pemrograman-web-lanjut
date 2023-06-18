@@ -43,6 +43,15 @@
                         <input type="no_handphone" name="no_handphone" class="form-control" id="no_handphone"
                             aria-describedby="no_handphone">
                     </div>
+                    <div>
+                        <label for="email">email</label>
+                        <input type="email" name="email" class="form-control" id="email" aria-describedby="email">
+                    </div>
+                    <div>
+                        <label for="tanggal_lahir">tanggal_lahir</label>
+                        <input type="date" name="tanggal_lahir" class="form-control" id="tanggal_lahir"
+                            aria-describedby="tanggal_lahir">
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>

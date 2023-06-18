@@ -15,9 +15,7 @@ class MahasiswaController extends Controller
     public function index()
     {
         $mahasiswa = Mahasiswa::all();
-        $posts = Mahasiswa::orderBy('Nim', 'desc')->paginate(6);
-        return view('mahasiswa.index', compact('mahasiswa'))->
-        with('i', (request()->input('page', 1) - 1) * 5);
+        return view('mahasiswa.index', compact('mahasiswa'));
     }
 
     /**
@@ -40,6 +38,8 @@ class MahasiswaController extends Controller
             'kelas'=>'required',
             'jurusan'=>'required',
             'no_handphone'=>'required',
+            'email'=> 'required',
+            'tanggal_lahir'=> 'required'
         ]);
 
         Mahasiswa::create($request->all());
@@ -78,6 +78,8 @@ class MahasiswaController extends Controller
             'kelas'=>'required',
             'jurusan'=>'required',
             'no_handphone'=>'required',
+            'email'=> 'required',
+            'tanggal_lahir'=> 'required'
         ]);
 
         Mahasiswa::find($nim)->update($request->all());
