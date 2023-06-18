@@ -13,11 +13,18 @@ class MahasiswaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $mahasiswa = Mahasiswa::with('kelas')->get();
-        $paginate = Mahasiswa::orderBy('Nim', 'asc')->paginate(3);
-        return view('mahasiswa.index', ['mahasiswa' => $mahasiswa, 'paginate'=>$paginate]);
+
+        $keyword = $request->input('nama');
+
+        if ($keyword) {
+            $mahasiswa = Mahasiswa::with('kelas')->where('nama', 'like', '%' . $keyword . '%')->paginate(5);
+        } else {
+            $mahasiswa = Mahasiswa::with('kelas')->paginate(5);
+        }
+
+        return view('mahasiswa.index', ['mahasiswa' => $mahasiswa]);
     }
 
     /**
@@ -41,6 +48,8 @@ class MahasiswaController extends Controller
             'kelas'=>'required',
             'jurusan'=>'required',
             'no_handphone'=>'required',
+            'email'=> 'required',
+            'tanggal_lahir'=> 'required',
         ]);
 
         $mahasiswa = new Mahasiswa;
@@ -48,6 +57,8 @@ class MahasiswaController extends Controller
         $mahasiswa->nama = $request->get('nama');
         $mahasiswa->jurusan = $request->get('jurusan');
         $mahasiswa->no_handphone = $request->get('no_handphone');
+        $mahasiswa->email = $request->get('email');
+        $mahasiswa->tanggal_lahir = $request->get('tanggal_lahir');
         $mahasiswa->save();
 
         $kelas = new kelas;
@@ -94,6 +105,8 @@ class MahasiswaController extends Controller
             'kelas'=>'required',
             'jurusan'=>'required',
             'no_handphone'=>'required',
+            'email'=> 'required',
+            'tanggal_lahir'=> 'required'
         ]);
 
         // Mahasiswa::find($nim)->update($request->all());
@@ -103,6 +116,8 @@ class MahasiswaController extends Controller
         $mahasiswa->kelas_id = $request->get('kelas');
         $mahasiswa->jurusan = $request->get('jurusan');
         $mahasiswa->no_handphone = $request->get('no_handphone');
+        $mahasiswa->email = $request->get('email');
+        $mahasiswa->tanggal_lahir = $request->get('tanggal_lahir');
         $mahasiswa->save();
 
         $kelas = new kelas;
