@@ -43,3 +43,4 @@ Route::get('/about-us', function(){
 });
 
 Route::resource('/contact-us', ContactUsController::class);
+
