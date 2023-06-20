@@ -12,6 +12,7 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Contracts\Container\BindingResolutionException;
 
 class AuthController extends Controller
 {
